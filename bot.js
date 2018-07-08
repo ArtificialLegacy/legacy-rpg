@@ -37,12 +37,10 @@ if(!message.content.startsWith(prefix)) return;
     if (commandFile) {
         if(cooldown.has(message.author.id)){
             message.delete;
-            return message.reply(`You have to wait ${cool} seconds between commands.`);
+            return message.reply(`You have to wait ${cdseconds} seconds before your next command.`);
         }
-        if(!permLevels[message.member.id] === 6) {
-            cooldown.add(message.author.id);
-        }
-         commandFile.run(bot, message, args, permLevels[message.member.id]);
+          cooldown.add(message.author.id);
+         commandFile.run(bot, message, args);
          setTimeout(() => {
              cooldown.delete(message.author.id)
          }, cdseconds * 1000)
@@ -53,7 +51,7 @@ if(!message.content.startsWith(prefix)) return;
 })
 
 bot.on("guildMemberAdd", member => {
-    member.addRole(member.guild.roles.find("name", "Member"));
+    
 })
 
 bot.login(yeet);
