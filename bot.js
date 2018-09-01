@@ -241,4 +241,4 @@ bot.on("guildDelete", guild => {
     }
 })
 
-bot.login("NDY1NTU3Njk2ODUxMjE0MzM5.DiPdgg.mRRAtr6wC9zFqv5CZhshLhxT-4I");
+bot.login("BOT TOKEN HERE");
