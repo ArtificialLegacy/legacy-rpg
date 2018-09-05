@@ -117,39 +117,31 @@ module.exports.run = async (bot, message, args, prefix) => {
 
         message.channel.send(embed);
     } else {
-        if(inventories[message.author.id].slot1 == "Empty") {
-        } else if(inventories[message.author.id].slot2 == "Empty") {
-        } else if(inventories[message.author.id].slot3 == "Empty") {
-        } else if(inventories[message.author.id].slot4 == "Empty") {
-        } else if(inventories[message.author.id].slot5 == "Empty") {
-        } else if(inventories[message.author.id].slot6 == "Empty") {
-        } else if(inventories[message.author.id].slot7 == "Empty") {
-        } else if(inventories[message.author.id].slot8 == "Empty") {
-        } else if(inventories[message.author.id].slot9 == "Empty") {
-        } else { 
-            message.reply("Crafting failed, inventory full"); 
-            return;
-        }
+      
         if (args[0] == "Improvised" && args[1] == "Pickaxe") {
-            materials = ["Pebble", "Branch"];
-            amounts = [4, 1];
-            crafted = "Improvised Pickaxe";
-            count = 1;
+            materials = [
+                new Item("Pebble", "Pebble", false, 0, 0, true, false, true, false, "A common pebble found everywhere.", false, false, false, false, false, false, 4),
+                new Item("Branch", "Branch", false, 0, 0, true, false, true, false, "A fallen branch.", false, false, false, false, false, true, 1, _, _, _, _, _, _, _, _, _, 1)
+            ];
+            crafted = new Item("Improvised Pickaxe", "Improvised Pickaxe", true, 1, 1, true, true, false, false, "A weak pickaxe that can break easily.", false, false, true, false, false, false, 1, 1, _, _, _, 75, 5, 75, [new Item("Branch", "Branch", false, 0, 0, true, false, true, false, "A fallen branch.", 1)], _, _, _, "equipment");
         } else if (args[0] == "Flint" && args[1] == "Axe") {
-            materials = ["Flint", "Branch"];
-            amounts = [4, 2];
-            crafted = "Flint Axe";
-            count = 1;
+            materials = [
+                new Item("Branch", "Branch", false, 0, 0, true, false, true, false, "A fallen branch.", false, false, false, false, false, true, 2, _, _, _, _, _, _, _, _, _, 1), 
+                new Item("Flint", "Branch", false, 0, 0, true, false, true, false, "A small rock that can start fires.", false, false, false, false, false, false, 4)
+            ];
+            crafted =  new Item("Flint Axe", "Flint Axe", true, 2, 1, true, true, false, false, "A weak axe that can chip easily and start fires.", false, false, true, false, false, false, 1, 1, _, _, _, 75, 5, 75, [new Item("Branch", "Branch", false, 0, 0, true, false, true, false, "A fallen branch.", 1)], _, _, _, "equipment");
         } else if (args[0] == "Improvised" && args[1] == "Axe") {
-            materials = ["Branch", "Pebble"];
-            amounts = [3, 2];
-            crafted = "Improvised Axe";
-            count = 1;
+            materials = [
+                new Item("Branch", "Branch", false, 0, 0, true, false, true, false, "A fallen branch.", false, false, false, false, false, true, 3, _, _, _, _, _, _, _, _, _, 1),
+                new Item("Pebble", "Pebble", false, 0, 0, true, false, true, false, "A common pebble found everywhere.", false, false, false, false, false, false, 2)
+            ];
+            crafted = new Item("Improvised Axe", "Improvised Axe", true, 1, 1, true, true, false, false, "A weak axe that can break easily.", false, false, true, false, false, false, 1, 1, _, _, _, 75, 5, 75, [new Item("Branch", "Branch", false, 0, 0, true, false, true, false, "A fallen branch.", 1)], _, _, _, "equipment");;
         } else if (args[0] == "Stone" && args[1] == "Pickaxe") {
-            materials = ["Stone", "Branch"];
-            amounts = [10, 4];
-            crafted = "Stone Pickaxe";
-            count = 1;
+            materials = [
+                new Item("Stone Chunk", "Stone", false, 0, 0, true, false, true, false, "A chunk of stone carved from the ground.", false, false, false, false, false, false, 10),
+                new Item("Branch", "Branch", false, 0, 0, true, false, true, false, "A fallen branch.", false, false, false, false, false, true, 4, _, _, _, _, _, _, _, _, _, 1)
+            ];
+            crafted = new Item("Stone Pickaxe", "Stone Pickaxe", true, 3, 1, true, true, false, false, "A decent starting pickaxe.", false, false, true, false, false, false, 1, 1, _, _, _, 75, 5, 75, [new Item("Branch", "Branch", false, 0, 0, true, false, true, false, "A fallen branch.", 4), new Item("Stone Chunk", "Stone", false, 0, 0, true, false, true, false, "A chunk of stone carved from the ground.", false, false, false, false, false, false, 4)], _, _, _, "equipment");
         } else if (args[0] == "Flint" && args[1] == "Pickaxe") {
             materials = ["Flint", "Branch"];
             amounts = [3, 3];
