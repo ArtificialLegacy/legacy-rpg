@@ -1,2 +1,2 @@
 # legacy-rpg
-A RPG discord bot.
+This project is abandoned go to legacyrpg2 for updates!
